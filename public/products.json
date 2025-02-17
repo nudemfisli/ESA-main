@@ -1,0 +1,72 @@
+[
+    {
+        "product_id": "1",
+        "name": "FORD TRANSIT 2002-2005",
+        "model": "FORD 300K003",
+        "category": "Other Products",
+        "price": "399",
+        "image": [
+            "public/images/300K003-1.jpg",
+            "public/images/300K003-2.jpg",
+            "public/images/300K003-3.jpg"
+        ]
+    },
+
+    {
+        "product_id": "2",
+        "name": "RENAULT KANGOO 2008-2020",
+        "model": "RENAULT",
+        "category": "Other Products",
+        "price": "",
+        "image": [
+            "public/images/A300K006-1.jpg",
+            "public/images/B300K006-2.jpg",
+            "public/images/C300K006-3.jpg"
+        ]
+    },
+    {
+        "product_id": "3",
+        "name": "VW CADDY 2015-2022",
+        "model": "VW",
+        "category": "Other Products",
+        "price": "",
+        "image": [
+            "public/images/A300K008-1.jpg",
+            "public/images/B300K008-2.jpg",
+            "public/images/C300K008-3.jpg",
+            "public/images/D300K008-4.jpg"
+        ]
+    },
+    {
+        "product_id": "4",
+        "name": "FORD CUSTOM 2018 VE ÜZERİ",
+        "model": "FORD",
+        "category": "Other Products",
+        "price": "",
+        "image": ""
+    },
+    {
+        "product_id": "5",
+        "name": "MERCEDES SPRINTER W906 2006-2014",
+        "model": "MERCEDES",
+        "category": "Other Products",
+        "price": "",
+        "image": ""
+    },
+    {
+        "product_id": "6",
+        "name": "RENAULT KANGOO ÖN KAPUT KORUYUCU RÜZGARLIĞI 2014-2021",
+        "model": "RENAULT",
+        "category": "Other Products",
+        "price": "",
+        "image": ""
+    },
+    {
+        "product_id": "7",
+        "name": "PEUGEOT RIFTER 2019 VE ÜZERİ",
+        "model": "PEUGEOT",
+        "category": "Other Products",
+        "price": "",
+        "image": ""
+    }
+]
