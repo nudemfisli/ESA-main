@@ -56,11 +56,11 @@
         background-image: url('/images/pexels-markusspiske-2027045.jpg');
         background-size: cover;
         background-position: center;
-        position: fixed;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
-        height: 45vh;
+        height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;

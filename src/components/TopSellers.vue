@@ -1,9 +1,8 @@
 <template>
     <section class="product-carousel">
         <h1 class="bestseller-title">Bestsellers</h1>
-        <div class="carousel-container" v-if="store.products.length > 0">
+        <div class="carousel-container" v-if="bestsellerProducts.length > 0">
             <button class="carousel-btn prev-btn" @click="prevSlide">❮</button>
-
             <div
                 class="carousel-wrapper"
                 ref="carouselWrapper"
@@ -11,25 +10,23 @@
             >
                 <div
                     class="carousel-item"
-                    v-for="(product, index) in store.products"
+                    v-for="(product, index) in bestsellerProducts"
                     :key="index"
                 >
                     <img
-                        :src="product.image"
+                        :src="product.image[0]"
                         :alt="product.name"
                         class="carousel-image"
                     />
                     <div class="carousel-content">
                         <h3>{{ product.name }}</h3>
                         <p>{{ product.category }}</p>
-                        <button class="btn">Shop Now</button>
+                        <button class="btn">Go to</button>
                     </div>
                 </div>
             </div>
-
             <button class="carousel-btn next-btn" @click="nextSlide">❯</button>
         </div>
-
         <p v-else class="loading-text">Loading products...</p>
     </section>
 </template>
@@ -47,6 +44,10 @@
         }
     });
 
+    const bestsellerProducts = computed(() => {
+        return store.products.filter((product) => product.bestseller);
+    });
+
     const carouselStyle = computed(() => ({
         transform: `translateX(-${currentSlide.value * 100}%)`,
         transition: 'transform 0.5s ease-in-out'
@@ -57,7 +58,7 @@
     };
 
     const nextSlide = () => {
-        if (currentSlide.value < store.products.length - 1)
+        if (currentSlide.value < bestsellerProducts.value.length - 1)
             currentSlide.value++;
     };
 </script>
@@ -66,18 +67,19 @@
     .bestseller-title {
         text-align: center;
     }
+
     .product-carousel {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding-top: 50vh;
+        position: relative;
+        padding-top: 4vh;
     }
 
     .carousel-container {
         display: flex;
         align-items: center;
         justify-content: center;
-
         position: relative;
         overflow: hidden;
     }

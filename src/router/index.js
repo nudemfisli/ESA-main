@@ -4,6 +4,7 @@ import AboutPage from '../views/AboutPage.vue';
 import ContactPage from '../views/ContactPage.vue';
 import CategoryPage from '../views/CategoryPage.vue';
 import IndividualProduct from '../views/IndividualProduct.vue';
+import ProductsPage from '../views/ProductsPage.vue';
 
 const routes = [
     {
@@ -22,14 +23,16 @@ const routes = [
         component: ContactPage
     },
     {
-        path: '/services',
-        name: 'Services',
-        component: CategoryPage
+        path: '/products',
+        name: 'Products',
+        component: ProductsPage
     },
+    // route to the different categories fetched in JSON
     {
-        path: '/shipping',
-        name: 'Shipping',
-        component: IndividualProduct
+        path: '/product/:category',
+        name: 'ProductCategory',
+        component: CategoryPage,
+        props: true
     }
 ];
 

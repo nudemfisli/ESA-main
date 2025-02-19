@@ -20,7 +20,7 @@
     .footer {
         background-color: #9ca7a6;
         width: 100%;
-        position: fixed;
+        position: relative;
         bottom: 0;
         left: 0;
         z-index: 1000;
@@ -43,6 +43,7 @@
         padding-right: 7vw;
         display: flex;
         justify-content: space-between;
+        text-transform: uppercase;
     }
 
     .footer-links a {

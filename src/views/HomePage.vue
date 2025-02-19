@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-    import AppHeader from '../components/AppHeader.vue';
-    import TopSellers from '../components/BestSellers.vue';
-    import ProductCard from '../components/ProductCard.vue';
+    import AppHeader from '../components/HomeHeader.vue';
+    import TopSellers from '../components/TopSellers.vue';
+    import ProductCard from '../components/ProductsCard.vue';
 </script>

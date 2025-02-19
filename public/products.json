@@ -6,10 +6,11 @@
         "category": "Other Products",
         "price": "399",
         "image": [
-            "public/images/300K003-1.jpg",
-            "public/images/300K003-2.jpg",
-            "public/images/300K003-3.jpg"
-        ]
+            "/images/FordTransit-2002-2005-OP/300K003-1-fordtransit-OP.jpg",
+            "/images/FordTransit-2002-2005-OP/300K003-2-fordtransit-OP.jpg",
+            "/images/FordTransit-2002-2005-OP/300K003-3-fordtransit-OP.jpg"
+        ],
+        "bestseller": true
     },
 
     {
@@ -19,11 +20,13 @@
         "category": "Other Products",
         "price": "",
         "image": [
-            "public/images/A300K006-1.jpg",
-            "public/images/B300K006-2.jpg",
-            "public/images/C300K006-3.jpg"
-        ]
+            "/images/A300K006-1.jpg",
+            "/images/B300K006-2.jpg",
+            "/images/C300K006-3.jpg"
+        ],
+        "bestseller": true
     },
+
     {
         "product_id": "3",
         "name": "VW CADDY 2015-2022",
@@ -31,42 +34,70 @@
         "category": "Other Products",
         "price": "",
         "image": [
-            "public/images/A300K008-1.jpg",
-            "public/images/B300K008-2.jpg",
-            "public/images/C300K008-3.jpg",
-            "public/images/D300K008-4.jpg"
-        ]
+            "/images/VW-Caddy-2015-2022-OP/A300K008-caddy-1.jpg",
+            "/images/VW-Caddy-2015-2022-OP/B300K008-caddy-2.jpg",
+            "/images/VW-Caddy-2015-2022-OP/C300K008-caddy-3.jpg",
+            "/images/VW-Caddy-2015-2022-OP/D300K008-caddy-4.jpg"
+        ],
+        "bestseller": true
     },
+
     {
         "product_id": "4",
         "name": "FORD CUSTOM 2018 VE ÜZERİ",
         "model": "FORD",
         "category": "Other Products",
-        "price": "",
-        "image": ""
+        "price": "999",
+        "image": [
+            "/images/A300K018-1.jpg",
+            "/images/B300K018-2.jpg",
+            "/images/C300K018-3.jpg"
+        ],
+        "bestseller": true
     },
+
     {
         "product_id": "5",
         "name": "MERCEDES SPRINTER W906 2006-2014",
         "model": "MERCEDES",
         "category": "Other Products",
         "price": "",
-        "image": ""
+        "image": [
+            "/images/MercedesSprinter-W906-2006-2014-OP/1300K034-mercedes-OP.jpg",
+            "/images/MercedesSprinter-W906-2006-2014-OP/2300K034-mercedes-OP.jpg",
+            "public/images/MercedesSprinter-W906-2006-2014-OP/3300K034-mercedes-OP.jpg"
+        ],
+        "bestseller": false
     },
+
     {
         "product_id": "6",
         "name": "RENAULT KANGOO ÖN KAPUT KORUYUCU RÜZGARLIĞI 2014-2021",
         "model": "RENAULT",
         "category": "Other Products",
         "price": "",
-        "image": ""
+        "image": [
+            "/images/Renault-Kangoo-2014-2021-OP/300k044hbkapakfoto.jpg",
+            "/images/Renault-Kangoo-2014-2021-OP/6854K974_1w.jpg",
+            "/images/Renault-Kangoo-2014-2021-OP/6854K974_2w.jpg",
+            "/images/Renault-Kangoo-2014-2021-OP/6854K974_3w.jpg",
+            "/images/Renault-Kangoo-2014-2021-OP/6854K974_4w.jpg",
+            "/images/Renault-Kangoo-2014-2021-OP/6854K974_4w.png"
+        ],
+        "bestseller": false
     },
+
     {
         "product_id": "7",
         "name": "PEUGEOT RIFTER 2019 VE ÜZERİ",
         "model": "PEUGEOT",
         "category": "Other Products",
         "price": "",
-        "image": ""
+        "image": [
+            "/images/PeugotRifter-2019-OP/A300K063.jpg",
+            "/images/PeugotRifter-2019-OP/A300K063.jpg",
+            "/images/PeugotRifter-2019-OP/C300K063.jpg"
+        ],
+        "bestseller": false
     }
 ]

@@ -1,9 +1,9 @@
 <!-- Navbar -->
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-logo" href="#">
+        <router-link class="navbar-logo" to="/home">
             <img src="/images/ESA_LOGO2.png" alt="ESA Logo" />
-        </a>
+        </router-link>
         <button
             class="navbar-toggler"
             type="button"
@@ -19,16 +19,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <router-link class="nav-link" to="/">Products</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/link"
-                        >Contact us</router-link
+                    <router-link class="nav-link" to="/products"
+                        >Products</router-link
                     >
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/link"
+                    <router-link class="nav-link" to="/contact"
                         >About us</router-link
+                    >
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/about"
+                        >Contact</router-link
                     >
                 </li>
             </ul>
@@ -42,17 +44,6 @@
                         aria-label="Search"
                         v-model="searchQuery"
                     />
-
-                    <button
-                        v-if="searchQuery"
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        @click="clearSearch"
-                        aria-label="Clear Search"
-                    >
-                        <span class="close-icon">&times;</span>
-                        <!-- The 'X' icon -->
-                    </button>
                 </div>
             </div>
         </div>
@@ -84,6 +75,11 @@
         z-index: 1000;
         align-items: center;
         background-color: #9ca7a6 !important;
+    }
+
+    .nav-link {
+        text-transform: uppercase;
+        color: #000000;
     }
 
     .navbar-nav {
@@ -128,7 +124,7 @@
 
     .close-icon {
         font-size: 1.2rem;
-        color: #333;
+        color: #000000;
         cursor: pointer;
     }
 </style>
