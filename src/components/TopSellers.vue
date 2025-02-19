@@ -1,32 +1,49 @@
 <template>
     <section class="product-carousel">
         <h1 class="bestseller-title">Bestsellers</h1>
+
         <div class="carousel-container" v-if="bestsellerProducts.length > 0">
             <button class="carousel-btn prev-btn" @click="prevSlide">❮</button>
+
             <div
                 class="carousel-wrapper"
                 ref="carouselWrapper"
                 :style="carouselStyle"
             >
                 <div
-                    class="carousel-item"
-                    v-for="(product, index) in bestsellerProducts"
+                    class="carousel-slide"
+                    v-for="(chunk, index) in paginatedProducts"
                     :key="index"
                 >
-                    <img
-                        :src="product.image[0]"
-                        :alt="product.name"
-                        class="carousel-image"
-                    />
-                    <div class="carousel-content">
-                        <h3>{{ product.name }}</h3>
-                        <p>{{ product.category }}</p>
-                        <button class="btn">Go to</button>
+                    <div
+                        class="product-card"
+                        v-for="(product, idx) in chunk"
+                        :key="idx"
+                    >
+                        <img
+                            :src="product.image[0]"
+                            :alt="product.name"
+                            class="product-image"
+                        />
+                        <div class="product-info">
+                            <h3 class="product-title">{{ product.name }}</h3>
+                            <div class="category-price-btn">
+                                <h4 class="product-category">
+                                    {{ product.category }}
+                                </h4>
+                                <h5 class="product-price">
+                                    {{ product.price }}
+                                </h5>
+                                <button class="btn">View Product</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <button class="carousel-btn next-btn" @click="nextSlide">❯</button>
         </div>
+
         <p v-else class="loading-text">Loading products...</p>
     </section>
 </template>
@@ -37,6 +54,7 @@
 
     const store = useProductStore();
     const currentSlide = ref(0);
+    const itemsPerSlide = 2;
 
     onMounted(() => {
         if (store.products.length === 0) {
@@ -44,36 +62,60 @@
         }
     });
 
-    const bestsellerProducts = computed(() => {
-        return store.products.filter((product) => product.bestseller);
+    // Filter to bestseller
+    const bestsellerProducts = computed(() =>
+        store.products.filter((product) => product.bestseller)
+    );
+
+    // Two items per slide
+    const paginatedProducts = computed(() => {
+        let chunks = [];
+        for (
+            let i = 0;
+            i < bestsellerProducts.value.length;
+            i += itemsPerSlide
+        ) {
+            chunks.push(bestsellerProducts.value.slice(i, i + itemsPerSlide));
+        }
+        return chunks;
     });
 
+    // Move the carousel
     const carouselStyle = computed(() => ({
         transform: `translateX(-${currentSlide.value * 100}%)`,
         transition: 'transform 0.5s ease-in-out'
     }));
 
     const prevSlide = () => {
-        if (currentSlide.value > 0) currentSlide.value--;
+        if (currentSlide.value > 0) {
+            currentSlide.value--;
+        }
     };
 
     const nextSlide = () => {
-        if (currentSlide.value < bestsellerProducts.value.length - 1)
+        if (currentSlide.value < paginatedProducts.value.length - 1) {
             currentSlide.value++;
+        }
     };
 </script>
 
 <style scoped>
     .bestseller-title {
         text-align: center;
+        text-transform: uppercase;
+        font-size: 24px;
     }
+
+    /* Carousel container */
 
     .product-carousel {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
-        padding-top: 4vh;
+        padding-top: 6vh;
+        overflow: hidden;
+        text-align: center;
     }
 
     .carousel-container {
@@ -82,40 +124,97 @@
         justify-content: center;
         position: relative;
         overflow: hidden;
+        width: 100%;
     }
 
+    /* Wrapper with sliding effect */
     .carousel-wrapper {
         display: flex;
         width: 100%;
-        white-space: nowrap;
+        transition: transform 0.5s ease-in-out;
     }
 
-    .carousel-item {
-        width: 100%;
-        padding: 15px;
+    /* Two products per slide */
+    .carousel-slide {
+        display: flex;
+        justify-content: center;
+        flex: 0 0 100%;
         box-sizing: border-box;
-        text-align: center;
-        flex-shrink: 0;
+        gap: 1em;
     }
 
-    .carousel-image {
+    /* Product card */
+    .product-card {
+        width: 47%;
+        padding: 15px;
+        background: white;
+        text-align: center;
+    }
+
+    /* Product image */
+    .product-image {
         width: 100%;
-        height: auto;
+        height: 220px;
         object-fit: cover;
+        border: 1px solid rgba(16, 16, 16, 0.49);
         border-radius: 10px;
     }
 
-    .carousel-content {
-        padding: 15px;
+    .product-title {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
-    .carousel-btn {
-        background-color: rgba(0, 0, 0, 0.5);
+    .category-price-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .product-category,
+    .product-price {
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .product-category {
+        font-size: 1em;
+    }
+    .product-price {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        border: none;
+        background-color: #0c2927d0;
         color: white;
-        font-size: 2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .btn:hover {
+        background-color: #0c2927c0;
+        color: white;
+    }
+
+    /* Carousel buttons */
+    .carousel-btn {
+        color: rgba(47, 47, 47, 0.894);
+        font-size: 2.5rem;
         padding: 10px;
         cursor: pointer;
         border: none;
+        background: none;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -123,20 +222,10 @@
     }
 
     .prev-btn {
-        left: 10px;
+        left: -9px;
     }
 
     .next-btn {
-        right: 10px;
-    }
-
-    .carousel-btn:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .loading-text {
-        text-align: center;
-        font-size: 1.2rem;
-        color: #666;
+        right: -9px;
     }
 </style>

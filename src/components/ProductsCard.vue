@@ -82,7 +82,7 @@
         flex-direction: column;
         align-items: center;
         transition: transform 0.3s ease-in-out;
-        border: 2px solid #00000026;
+        border: 1px solid rgba(16, 16, 16, 0.49);
         border-radius: 5px;
         width: 18em;
         height: 20em;

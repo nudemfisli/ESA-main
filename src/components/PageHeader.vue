@@ -1,20 +1,11 @@
 <template>
     <div class="banner">
-        <!-- Props for dynamic title as it needs to be changed for different pages-->
+        <!-- Use the passed title for the header -->
         <h3 class="header-title">{{ title }}</h3>
     </div>
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
-    const searchQuery = ref('');
-
-    console.log('searchQuery value:', searchQuery.value);
-
-    onMounted(() => {
-        console.log('Banner component is mounted!');
-    });
-
     defineProps({
         title: {
             type: String,
@@ -36,8 +27,6 @@
         background-size: cover;
         background-position: center;
         position: relative;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 40vh;
         display: flex;
@@ -56,12 +45,12 @@
         background: rgba(32, 31, 31, 0.6);
         z-index: -1;
     }
+
     .header-title {
         color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
+        font-size: 2rem;
         text-transform: uppercase;
+        text-align: center;
+        margin: 0;
     }
 </style>

@@ -1,23 +1,31 @@
 <template>
     <div>
-        <PageHeader />
-        <h1>{{ pageTitle }}</h1>
+        <PageHeader :title="pageTitle" />
+        <CategoryCards />
+        <PageNavigation />
     </div>
 </template>
 
 <script setup>
     import { useRoute } from 'vue-router';
     import PageHeader from '../components/PageHeader.vue';
-    import { computed, watchEffect } from 'vue';
+    import CategoryCards from '../components/CategoryCards.vue';
+    import PageNavigation from '../components/PageNavigation.vue';
+    import { computed } from 'vue';
 
     const route = useRoute();
-    const category = route.params.category;
+    const category = route.params.category; // Route params to get which category
 
-    //Page title change according to category
+    // Dynamically generates header title according to chosen category
     const pageTitle = computed(() => {
         if (category) {
-            return `${category} Products`;
+            //Styling the title
+            return category
+                .split('-')
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
         }
+        return '';
     });
 </script>
 

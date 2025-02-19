@@ -1,6 +1,38 @@
 <template>
+    <div class="search-boxes">
+        <!-- Dropdown menu -->
+        <div class="dropdown">
+            <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+                Sort by
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Newest</a>
+                <a class="dropdown-item" href="#">Price: low to high</a>
+                <a class="dropdown-item" href="#">Price: high to low</a>
+                <a class="dropdown-item" href="#">Alphabetical (A-Z)</a>
+                <a class="dropdown-item" href="#">Alphabetical (Z-A)</a>
+            </div>
+        </div>
+
+        <!-- Search box -->
+        <div class="search-box">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="Model"
+                v-model="searchQuery"
+            />
+        </div>
+    </div>
+
     <section class="category-cards">
-        <h2 class="category-title">Category</h2>
         <div class="image-container">
             <router-link
                 v-for="product in filteredProducts"
@@ -45,6 +77,34 @@
 </script>
 
 <style scoped>
+    .search-boxes {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+        padding-top: 1em;
+        padding-right: 0.7em;
+    }
+
+    .btn-secondary {
+        background-color: white !important;
+        color: black !important;
+        height: 40px;
+        width: 140px;
+        text-align: start;
+    }
+
+    .dropdown-item:hover {
+        background-color: #e3e3e3;
+        color: black !important;
+    }
+
+    .search-box {
+        border: 1px solid #000000d7 !important;
+        border-radius: 6px;
+        height: 40px;
+        width: 140px;
+    }
+
     .category-cards {
         text-align: center;
         padding: 20px;
