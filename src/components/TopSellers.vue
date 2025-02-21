@@ -80,7 +80,7 @@
         return chunks;
     });
 
-    // Move the carousel
+    // Move carousel
     const carouselStyle = computed(() => ({
         transform: `translateX(-${currentSlide.value * 100}%)`,
         transition: 'transform 0.5s ease-in-out'
@@ -103,11 +103,10 @@
     .bestseller-title {
         text-align: center;
         text-transform: uppercase;
-        font-size: 24px;
+        font-size: 25px;
     }
 
     /* Carousel container */
-
     .product-carousel {
         width: 100%;
         max-width: 1200px;
@@ -127,7 +126,7 @@
         width: 100%;
     }
 
-    /* Wrapper with sliding effect */
+    /* Sliding effect */
     .carousel-wrapper {
         display: flex;
         width: 100%;
@@ -185,6 +184,7 @@
     .product-category {
         font-size: 1em;
     }
+
     .product-price {
         font-weight: bold;
         font-size: 1.1em;
@@ -193,7 +193,7 @@
     .btn {
         padding: 8px 12px;
         border: none;
-        background-color: #0c2927d0;
+        background-color: #0c2927ca;
         color: white;
         border-radius: 5px;
         cursor: pointer;

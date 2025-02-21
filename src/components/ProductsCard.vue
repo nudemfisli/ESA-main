@@ -108,6 +108,8 @@
         padding: 1em;
         font-weight: bold;
         text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
     }
 
     .product-card:hover {

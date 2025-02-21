@@ -80,6 +80,7 @@
     .nav-link {
         text-transform: uppercase;
         color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .navbar-nav {

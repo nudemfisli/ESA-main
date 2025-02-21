@@ -32,8 +32,9 @@
         </div>
     </div>
 
-    <section class="category-cards">
-        <div class="image-container">
+    <!-- Product cards -->
+    <section>
+        <div class="card-container">
             <router-link
                 v-for="product in filteredProducts"
                 :key="product.product_id"
@@ -51,29 +52,37 @@
             </router-link>
         </div>
     </section>
+
+    <!-- Loading/Error-->
+    <div v-if="loading" class="loading">Loading...</div>
+    <div v-if="error" class="error">Error: {{ error }}</div>
 </template>
 
 <script setup>
     import { ref, computed, onMounted } from 'vue';
+    import { useProductStore } from '../stores/productStore';
 
-    const products = ref([]);
-    const selectedCategory = ref('Other Products');
+    const searchQuery = ref('');
+    const productStore = useProductStore();
 
-    onMounted(async () => {
-        try {
-            const response = await fetch('/path/to/your/products-api');
-            const data = await response.json();
-            products.value = data;
-        } catch (error) {
-            console.error('Error fetching products:', error);
-        }
+    onMounted(() => {
+        productStore.fetchProducts();
     });
 
+    // Filter products based on selected category and search query
     const filteredProducts = computed(() => {
-        return products.value.filter(
-            (product) => product.category === selectedCategory.value
-        );
+        return productStore.products.filter((product) => {
+            const matchesCategory =
+                product.category === productStore.selectedCategory;
+            const matchesSearchQuery = product.name
+                .toLowerCase()
+                .includes(searchQuery.value.toLowerCase());
+            return matchesCategory && matchesSearchQuery;
+        });
     });
+
+    const loading = computed(() => productStore.loading);
+    const error = computed(() => productStore.error);
 </script>
 
 <style scoped>
@@ -105,24 +114,11 @@
         width: 140px;
     }
 
-    .category-cards {
-        text-align: center;
-        padding: 20px;
-        width: 100%;
-        position: relative;
-        background: white;
-        padding-top: 10vh;
-    }
-
-    .category-title {
-        padding-bottom: 0.5em;
-    }
-
-    .image-container {
-        display: flex;
-        justify-content: center;
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         gap: 15px;
-        flex-wrap: wrap;
+        justify-content: center;
         padding-bottom: 5em;
     }
 
@@ -135,7 +131,6 @@
         transition: transform 0.3s ease-in-out;
         border: 2px solid #00000026;
         border-radius: 5px;
-        width: 18em;
         height: 20em;
         overflow: hidden;
         box-sizing: border-box;

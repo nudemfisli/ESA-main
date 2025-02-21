@@ -19,7 +19,7 @@
     // Dynamically generates header title according to chosen category
     const pageTitle = computed(() => {
         if (category) {
-            //Styling the title
+            //Styling title
             return category
                 .split('-')
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

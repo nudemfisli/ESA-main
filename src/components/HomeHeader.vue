@@ -4,7 +4,6 @@
             <div class="dropdown show">
                 <a
                     class="btn btn-secondary dropdown-toggle"
-                    href="#"
                     role="button"
                     id="dropdownMenuLink"
                     data-bs-toggle="dropdown"
@@ -100,7 +99,7 @@
         min-width: 200px;
         max-width: 300px;
         background-color: #fff;
-        border-radius: 5px;
+        border-radius: 8px;
         z-index: 1050;
         padding: 10px 0;
     }
@@ -108,21 +107,16 @@
     .search-box {
         flex: 1;
         max-width: 300px;
+        border-radius: 8px;
     }
 
     .search-box input {
         width: 100%;
         padding: 10px;
         font-size: 16px;
-        border: 2px solid #ccc;
         border-radius: 5px;
         background-color: #fff;
         color: #000;
-    }
-
-    .search-box input:focus {
-        outline: none;
-        border-color: #007bff;
     }
 
     .dropdown-item {
