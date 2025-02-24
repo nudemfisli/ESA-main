@@ -17,14 +17,23 @@
 <script setup></script>
 
 <style scoped>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
     .footer {
         background-color: #9ca7a6;
         width: 100%;
-        position: relative;
-        bottom: 0;
-        left: 0;
-        z-index: 1000;
         padding: 0.3em;
+        position: relative;
+        margin-top: auto;
     }
 
     .footer-trademark {

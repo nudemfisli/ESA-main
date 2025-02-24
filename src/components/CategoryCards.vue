@@ -34,12 +34,12 @@
 
     <!-- Product cards -->
     <section>
-        <div class="card-container">
+        <div class="card-containers">
             <router-link
                 v-for="product in filteredProducts"
                 :key="product.product_id"
                 :to="`/product/${product.product_id}`"
-                class="product-card"
+                class="product-cards"
             >
                 <img
                     class="image-item"
@@ -114,7 +114,7 @@
         width: 140px;
     }
 
-    .card-container {
+    .card-containers {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 15px;
@@ -122,7 +122,7 @@
         padding-bottom: 5em;
     }
 
-    .product-card {
+    .product-cards {
         text-decoration: none;
         color: black;
         display: flex;

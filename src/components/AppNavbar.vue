@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <router-link class="navbar-logo" to="/home">
+        <router-link class="navbar-logo" to="/">
             <img src="/images/ESA_LOGO2.png" alt="ESA Logo" />
         </router-link>
         <button
@@ -24,12 +24,12 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/contact"
+                    <router-link class="nav-link" to="/about"
                         >About us</router-link
                     >
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/about"
+                    <router-link class="nav-link" to="/contact"
                         >Contact</router-link
                     >
                 </li>

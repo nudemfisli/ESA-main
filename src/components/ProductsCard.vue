@@ -49,8 +49,6 @@
     </section>
 </template>
 
-<script setup></script>
-
 <style scoped>
     .category-cards {
         text-align: center;

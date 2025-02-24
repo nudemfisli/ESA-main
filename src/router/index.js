@@ -8,7 +8,7 @@ import ProductsPage from '../views/ProductsPage.vue';
 
 const routes = [
     {
-        path: '/home',
+        path: '/',
         name: 'Home',
         component: HomePage
     },
@@ -27,6 +27,7 @@ const routes = [
         name: 'Products',
         component: ProductsPage
     },
+
     // route to the different categories fetched in JSON
     {
         path: '/product/:category',
