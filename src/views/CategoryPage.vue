@@ -9,7 +9,7 @@
 <script setup>
     import { useRoute } from 'vue-router';
     import PageHeader from '../components/PageHeader.vue';
-    import CategoryCards from '../components/CategoryCards.vue';
+    import CategoryCards from '../components/CategoryProducts.vue';
     import PageNavigation from '../components/PageNavigation.vue';
     import { computed } from 'vue';
 
